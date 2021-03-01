@@ -1,0 +1,13 @@
+version: '2'
+services:
+    firefox:
+        # Build the dockerfile
+        build: .
+        # Mouting /dev/shm is a workaround for browser crashes inside docker. See https://github.com/SeleniumHQ/docker-selenium#quick-start
+        volumes:
+            - /dev/shm:/dev/shm
+        # Give the container a fixed name, because we may need to restart it from python
+        container_name: firefox_tor
+        # Selenium port we connect to from python
+        ports:
+            - "4444:4444"
