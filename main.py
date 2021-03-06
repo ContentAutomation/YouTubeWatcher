@@ -1,5 +1,6 @@
 import argparse
 import logging
+from src.youtube import close_privacy_popup
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -43,6 +44,8 @@ def main():
         # Start watching videos
         while True:
             try:
+                # Consent to YouTube's cookies
+                close_privacy_popup(driver)
                 watch_strategy(driver, args.search_terms, args.channel_url, duration=60)
             except TimeoutException:
                 logging.warning("Probably getting a Captcha because of blocked IP, restarting Docker")
