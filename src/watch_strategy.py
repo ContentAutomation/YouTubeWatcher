@@ -8,7 +8,8 @@ from src.youtube import do_search, get_channel_videos, watch_current_video
 
 
 def watch_strategy(driver: WebDriver, search_terms: list, channel_url: str, duration: int = 60):
-    """Watches YouTube videos found by searching the provided search_terms and from the given channel_url, for a duration in minutes."""
+    """Watches YouTube videos found by searching the provided search_terms and from the given channel_url,
+    for a duration in minutes."""
 
     start_time = datetime.now()
     # Watch for the duration

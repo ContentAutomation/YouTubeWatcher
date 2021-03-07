@@ -33,7 +33,8 @@ def watch_current_video(driver: WebDriver, max_time: int = 420) -> None:
     # The watch next video button gets created later I guess ¯\_(ツ)_/¯
     up_next_button_elem = None
 
-    # We wiggle the virtual mouse to prevent YouTube from hiding the player controls, because we read the watched time from there
+    # We wiggle the virtual mouse to prevent YouTube from hiding the player controls,
+    # because we read the watched time from there
     move_to_player = webdriver.ActionChains(driver)
     move_to_player.move_to_element_with_offset(player_div, 100, 100)
     wiggle_mouse = webdriver.ActionChains(driver)
@@ -73,7 +74,8 @@ def close_privacy_popup(driver: WebDriver) -> None:
     This functions sets the CONSENT cookie before visiting YouTube.
     """
     # To set cookies we need to visit the domain first. To avoid visiting the real website too early, we use robots.txt
-    # Originally for web crawlers, but serves as a plain page for any domain. https://en.wikipedia.org/wiki/Robots_exclusion_standard
+    # Originally for web crawlers, but serves as a plain page for any domain.
+    # https://en.wikipedia.org/wiki/Robots_exclusion_standard
     driver.get("https://www.youtube.com/robots.txt")
     driver.add_cookie({"name": "CONSENT", "value": "YES+US.en", "secure": True})
     # YouTube will ask if the user wants to sign in on the first visit, clicking no thanks is easy enough
@@ -165,7 +167,8 @@ def get_channel_videos(driver: WebDriver, channel_url: str) -> List[ClickableVid
     # Wait for results page to load
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.TAG_NAME, "ytd-grid-video-renderer")))
     channel_name = driver.find_element_by_css_selector(
-        "ytd-channel-name.ytd-c4-tabbed-header-renderer > div:nth-child(1) > div:nth-child(1) > yt-formatted-string:nth-child(1)"
+        "ytd-channel-name.ytd-c4-tabbed-header-renderer > div:nth-child(1) > div:nth-child(1) > "
+        "yt-formatted-string:nth-child(1) "
     ).text
     # Get all results
     video_title_elems = driver.find_elements_by_tag_name("ytd-grid-video-renderer")
