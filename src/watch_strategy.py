@@ -1,7 +1,8 @@
 import logging
-from selenium.webdriver.remote.webdriver import WebDriver
 import random
 from datetime import datetime, timedelta
+
+from selenium.webdriver.remote.webdriver import WebDriver
 
 from src.youtube import do_search, get_channel_videos, watch_current_video
 

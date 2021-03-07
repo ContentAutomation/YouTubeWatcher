@@ -1,8 +1,9 @@
 import logging
-from selenium.webdriver.remote.webdriver import WebDriver
-import docker
 import time
+
+import docker
 from selenium import webdriver
+from selenium.webdriver.remote.webdriver import WebDriver
 
 
 def get_new_ip(firefox_options: webdriver.FirefoxOptions, old_driver: WebDriver = None) -> WebDriver:

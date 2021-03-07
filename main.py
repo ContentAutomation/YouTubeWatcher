@@ -1,14 +1,13 @@
 import argparse
 import logging
-from src.youtube import close_privacy_popup
+from argparse import ArgumentError
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
-from argparse import ArgumentError
-from datetime import datetime
 
 from src.docker_tor import get_current_ip, get_new_ip
 from src.watch_strategy import watch_strategy
+from src.youtube import close_privacy_popup
 
 
 def main():
