@@ -137,7 +137,7 @@ def get_video_suggestions(driver: WebDriver, suggestion_count: int = 1) -> List[
 
     # Video suggestions are generated lazily while scrolling.
     # So we need to scroll far enough to get the number of suggestions we want.
-    while len(suggestions) < suggestion_count and len(suggestions) > prev_suggestion_count:
+    while suggestion_count > len(suggestions) > prev_suggestion_count:
         driver.execute_script(f'window.scrollTo(0, {int(yt_app.get_attribute("scrollHeight"))});')
         # Give YouTube a bit of time to load suggestions
         time.sleep(1)
