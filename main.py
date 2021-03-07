@@ -91,7 +91,6 @@ def get_firefox_tor_config() -> webdriver.FirefoxOptions:
 
 def get_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    today = datetime.now()
     parser.add_argument(
         "-B",
         "--browser",
