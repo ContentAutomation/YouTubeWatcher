@@ -82,7 +82,7 @@ def close_privacy_popup(driver: WebDriver) -> None:
     driver.get("https://www.youtube.com/")
     try:
         no_thanks_btn = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, '//paper-button[@aria-label="No thanks"]'))
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'paper-button[aria-label^="No"][aria-label$="thanks"]'))
         )
         no_thanks_btn.click()
     except:
