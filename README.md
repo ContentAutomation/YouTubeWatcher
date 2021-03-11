@@ -23,11 +23,13 @@
 </p>
 <hr />
 
-Search YouTube, query recommended videos and watch them. All fully automated and anonymised through the [Tor network](https://www.torproject.org/). The project consists of two independently usable components, the YouTube automation written in Python and the dockerized Tor Browser.
+Searches YouTube, queries recommended videos and watches them. All fully automated and anonymised through the [Tor network](https://www.torproject.org/). The project consists of two independently usable components, the YouTube automation written in Python and the dockerized Tor Browser.
 
-## YouTube automation
+**This project is for educational purposes only. Using Tor to watch YouTube videos is strongly discouraged, especially for Botting purposes. Please [inform yourself about the Tor network](https://2019.www.torproject.org/docs/faq.html.en), before using it extensively.**
 
-### Setup
+## Setup
+
+### YouTube automation
 
 This project requires [Poetry](https://python-poetry.org/) to install the required dependencies.
 Check out [this link](https://python-poetry.org/docs/) to install Poetry on your operating system.
@@ -39,6 +41,24 @@ Make sure you have installed [Python](https://www.python.org/downloads/) 3.8 or 
 3. Run ```poetry install``` to create a virtual environment with Poetry
 4. Either run the dockerized Browser with `docker-compose up`, install [geckodriver](https://github.com/mozilla/geckodriver/releases) for a local Firefox or [ChromeDriver](https://chromedriver.chromium.org/downloads) for Chromium. Ensure that geckodriver/ChromeDriver are in a location in your `$PATH`.
 5. Run ```poetry run python main.py``` to run the program. Alternatively you can run ```poetry shell``` followed by ```python main.py```. By default this connects to the dockerized Browser. To automate a different Browser use `--browser [chrome/firefox]` command line option.
+
+### Dockerized Tor Browser
+
+Running the Container requires [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/).
+
+1. Clone/Download this repository
+2. Navigate to the root of the repository
+3. Run `docker-compose up`. The image will be built automatically before startup.
+4. Selenium can now connect to the browser via port 4444. In Python the connection can be established with following command.
+
+    ``` python
+    driver = webdriver.Remote(
+        command_executor="http://127.0.0.1:4444/wd/hub",
+        desired_capabilities=options,
+    )
+    ```
+
+    See `main.py` for more information.
 
 ## Run Parameters
 All of these parameters are optional and a default value will be used if they are not defined. 
