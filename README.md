@@ -40,7 +40,7 @@ Make sure you have installed [Python](https://www.python.org/downloads/) 3.8 or 
 2. Navigate to the root of the repository
 3. Run ```poetry install``` to create a virtual environment with Poetry
 4. Either run the dockerized Browser with `docker-compose up`, install [geckodriver](https://github.com/mozilla/geckodriver/releases) for a local Firefox or [ChromeDriver](https://chromedriver.chromium.org/downloads) for Chromium. Ensure that geckodriver/ChromeDriver are in a location in your `$PATH`.
-5. Run ```poetry run python main.py``` to run the program. Alternatively you can run ```poetry shell``` followed by ```python main.py```. By default this connects to the dockerized Browser. To automate a different Browser use `--browser [chrome/firefox]` command line option.
+5. Run ```poetry run python main.py``` to run the program. Alternatively you can run ```poetry shell``` followed by ```python main.py```. By default this connects to the dockerized Browser. To automate a different Browser use the `--browser [chrome/firefox]` command line option.
 
 ### Dockerized Tor Browser
 
@@ -49,7 +49,7 @@ Running the Container requires [Docker](https://docs.docker.com/get-docker/) and
 1. Clone/Download this repository
 2. Navigate to the root of the repository
 3. Run `docker-compose up`. The image will be built automatically before startup.
-4. Selenium can now connect to the browser via port 4444. In Python the connection can be established with following command.
+4. Selenium can now connect to the browser via port 4444. In Python the connection can be established with the following command.
 
     ``` python
     driver = webdriver.Remote(
