@@ -22,9 +22,17 @@
         <a href="https://github.com/MorMund">Moritz M.</a>,
         <a href="https://github.com/lucaSchilling">Luca S. </a>
     </i>
+    <br />
+    <i><b>Related Projects</b>:
+        <a href="https://github.com/ContentAutomation/YouTubeUploader">YouTube Uploader</a>,
+        <a href="https://github.com/ContentAutomation/TwitchCompilationCreator">Twitch Compilation Creator</a>,
+        <a href="https://github.com/ContentAutomation/NeuralNetworks">Neural Networks</a>
+    </i>
 </p>
 
 <hr />
+
+## About
 
 Searches YouTube, queries recommended videos and watches them. All fully automated and anonymised through the [Tor network](https://www.torproject.org/). The project consists of two independently usable components, the YouTube automation written in Python and the dockerized Tor Browser.
 
