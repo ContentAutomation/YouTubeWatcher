@@ -66,3 +66,19 @@ Running the Container requires [Docker](https://docs.docker.com/get-docker/) and
 ## Run Parameters
 All of these parameters are optional and a default value will be used if they are not defined. 
 You can also get these definitions by running ```main.py --help```
+
+```
+usage: main.py [-h] [-B {docker,chrome,firefox}] [-t] [--disable-tor] -s SEARCH_TERMS [-c CHANNEL_URL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -B {docker,chrome,firefox}, --browser {docker,chrome,firefox}
+                        Select the driver/browser to use for executing the script.
+  -t, --enable-tor      Enables Tor usage by connecting to a proxy on localhost:9050. Only usable with the docker
+                        executor.
+  --disable-tor         Disables the Tor proxy.
+  -s SEARCH_TERMS, --search-terms SEARCH_TERMS
+                        This argument declares a list of search terms which get viewed.
+  -c CHANNEL_URL, --channel-url CHANNEL_URL
+                        Channel URL if not declared it uses Golden Gorillas channel URL as default.
+```
