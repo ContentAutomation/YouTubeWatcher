@@ -4,7 +4,6 @@ from typing import List
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
@@ -58,7 +57,7 @@ def watch_current_video(driver: WebDriver, max_time: int = 420) -> None:
                 if up_next_button_elem.is_displayed():
                     break
             else:
-                up_next_button_elem = driver.find_element_by_css_selector("span.ytp-upnext-bottom")
+                up_next_button_elem = driver.find_element_by_class_name("ytp-autonav-endscreen-upnext-button")
         except:
             # The next button is created lazily, so sometimes its missing
             logging.warning("No next button found while watching video")
@@ -82,7 +81,7 @@ def close_privacy_popup(driver: WebDriver) -> None:
     driver.get("https://www.youtube.com/")
     try:
         no_thanks_btn = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'paper-button[aria-label^="No"][aria-label$="thanks"]'))
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'tp-yt-paper-button[aria-label^="No"][aria-label$="thanks"]'))
         )
         no_thanks_btn.click()
     except:
@@ -100,12 +99,12 @@ def is_livestream(video_element: WebElement) -> bool:
 
 def do_search(driver: WebDriver, search_term: str) -> List[ClickableVideoElement]:
     """ Search youtube for the search_term and return the results """
-    # Search input the search term and press Enter
+    # Input the search term and confirm
     search_box = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input#search")))
     assert "Search" in search_box.get_attribute("placeholder")
     search_box.clear()
     search_box.send_keys(search_term)
-    search_box.send_keys(Keys.RETURN)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'search-icon-legacy'))).click()
 
     # Wait for results page to load
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.TAG_NAME, "ytd-video-renderer")))
