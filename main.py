@@ -5,7 +5,7 @@ from argparse import ArgumentError
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 
-from src.docker_tor import get_current_ip, get_new_ip
+from src.docker_firefox import get_current_ip, get_new_ip
 from src.watch_strategy import watch_strategy
 from src.youtube import close_privacy_popup
 
