@@ -83,10 +83,10 @@ def get_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "-c",
         "--channel-url",
-        default="https://www.youtube.com/channel/UCqq27nknJ3fe5IvrAbfuEwQ",
+        default="https://www.youtube.com/@PrivacyInternational",
         dest="channel_url",
         type=str,
-        help="Channel URL if not declared it uses Golden Gorillas channel URL as default.",
+        help="Channel URL if not declared it uses Privacy International's channel URL as default.",
         required=False,
     )
     return parser
