@@ -29,7 +29,7 @@ def main():
     elif args.browser == "chrome":
         driver = webdriver.Chrome()
     else:
-        raise ArgumentError(message="Unknown driver.")
+        raise ArgumentError(message="Unknown driver.", argument=None)
 
     try:
         # Log our current ip
