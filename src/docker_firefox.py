@@ -10,9 +10,9 @@ def get_new_ip(firefox_options: webdriver.FirefoxOptions, old_driver: WebDriver 
     if old_driver:
         old_driver.quit()
     client = docker.from_env()
-    container = client.containers.get("firefox_tor")
+    container = client.containers.get("firefox")
     container.restart()
-    # Wait for tor to rerun setup
+    # Wait for our container to start
     time.sleep(60)
     driver = webdriver.Remote(
         command_executor="http://127.0.0.1:4444/wd/hub",
